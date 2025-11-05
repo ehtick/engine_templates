@@ -21,12 +21,12 @@
     "vite": "^7.1.5"
   },
   "dependencies": {
-    "@thatopen/components": "~3.1.0",
-    "@thatopen/components-front": "~3.1.0",
-    "@thatopen/fragments": "~3.1.0",
-    "@thatopen/ui": "~3.1.0",
-    "@thatopen/ui-obc": "~3.1.0",
+    "@thatopen/components": "~3.2.0",
+    "@thatopen/components-front": "~3.2.0",
+    "@thatopen/fragments": "~3.2.0",
+    "@thatopen/ui": "~3.2.0",
+    "@thatopen/ui-obc": "~3.2.0",
     "three": "0.175.0",
-    "web-ifc": "0.0.71"
+    "web-ifc": "0.0.72"
   }
 }

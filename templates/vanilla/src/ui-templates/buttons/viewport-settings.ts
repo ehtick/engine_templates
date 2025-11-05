@@ -36,6 +36,7 @@ export const viewportSettingsTemplate: BUI.StatefullComponent<
     const [projection] = target.value;
     if (!projection) return;
     world.camera.projection.set(projection);
+    world.renderer.postproduction.updateCamera();
   };
 
   return BUI.html`
