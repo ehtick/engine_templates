@@ -23,26 +23,30 @@ const setModelTransparent = (components: OBC.Components) => {
     if (material.userData.customId) continue;
     // save colors
     let color: number | undefined;
+    let opacity: number | undefined;
     if ("color" in material) {
       color = material.color.getHex();
+      opacity = material.opacity;
     } else {
       color = material.lodColor.getHex();
+      opacity = material.lodOpacity;
     }
 
     originalColors.set(material, {
       color,
       transparent: material.transparent,
-      opacity: material.opacity,
+      opacity,
     });
 
     // set color
     material.transparent = true;
-    material.opacity = 0.05;
     material.needsUpdate = true;
     if ("color" in material) {
       material.color.setColorName("white");
+      material.opacity = 0.05;
     } else {
       material.lodColor.setColorName("white");
+      material.lodOpacity = 0.05;
     }
   }
 };
@@ -51,11 +55,12 @@ const restoreModelMaterials = () => {
   for (const [material, data] of originalColors) {
     const { color, transparent, opacity } = data;
     material.transparent = transparent;
-    material.opacity = opacity;
     if ("color" in material) {
       material.color.setHex(color);
+      material.opacity = opacity;
     } else {
       material.lodColor.setHex(color);
+      material.lodOpacity = opacity;
     }
     material.needsUpdate = true;
   }
